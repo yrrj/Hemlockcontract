@@ -36,7 +36,6 @@
             opacity: 0;
             transform: translateY(30px);
             transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-            /* Optional: Add a subtle transition delay for staggered effect */
             transition-delay: 0.1s; 
         }
 
@@ -45,6 +44,34 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* Dynamic Effect 3: Custom class for header when scrolled */
+        .scrolled-header {
+            box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.15), 0 4px 6px -2px rgba(79, 70, 229, 0.08) !important; 
+            border-bottom: 3px solid #4f46e5; /* Subtle accent line */
+            background-color: rgba(255, 255, 255, 0.98); /* Slight opacity for a cool effect */
+        }
+
+        /* Dynamic Effect 4: Fade-in Underline on Hover (NEW) */
+        .nav-link-effect {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 4px; /* Space for the line */
+        }
+        .nav-link-effect::after {
+            content: '';
+            position: absolute;
+            width: 0; /* Starts hidden */
+            height: 3px; /* Thickness of the line */
+            bottom: 0;
+            left: 0;
+            background-color: #4f46e5; /* Accent color */
+            transition: width 0.3s ease-in-out; /* Smooth transition for the effect */
+        }
+        .nav-link-effect:hover::after {
+            width: 100%; /* Fades in on hover */
+        }
+
 
         /* Custom styles for the image slider */
         .slider-track {
@@ -61,20 +88,19 @@
 <body class="antialiased">
 
     <!-- Header & Navigation (Professional, Sticky) -->
-    <header class="bg-white shadow-xl sticky top-0 z-20">
+    <header id="main-header" class="bg-white shadow-xl sticky top-0 z-20 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
             <!-- Logo/Title -->
-            <a href="#home" class="text-3xl font-extrabold text-slate-900 tracking-tight">
+            <a href="#home" class="text-3xl font-extrabold text-slate-900 tracking-tight transition duration-300 transform hover:text-indigo-600">
                 Hemlock <span class="accent-color">Contracting</span>
             </a>
 
-            <!-- Navigation Menu -->
+            <!-- Navigation Menu (Updated with new dynamic class) -->
             <nav class="hidden md:flex space-x-8">
-                <a href="#home" class="text-gray-600 hover:text-indigo-600 font-medium transition duration-300">Home</a>
-                <a href="#about" class="text-gray-600 hover:text-indigo-600 font-medium transition duration-300">About Us</a>
-                <a href="#showcase" class="text-gray-600 hover:text-indigo-600 font-medium transition duration-300">Featured Projects</a>
-                <a href="#project-gallery" class="text-gray-600 hover:text-indigo-600 font-medium transition duration-300">Image Gallery</a>
-                <a href="#contact" class="text-gray-600 hover:text-indigo-600 font-medium transition duration-300">Contact</a>
+                <!-- Applied nav-link-effect and combined with existing hover:scale-105 -->
+                <a href="#showcase" class="text-gray-600 hover:text-indigo-600 font-medium transition duration-300 transform hover:scale-105 nav-link-effect">Featured Projects</a>
+                <a href="#project-gallery" class="text-gray-600 hover:text-indigo-600 font-medium transition duration-300 transform hover:scale-105 nav-link-effect">Image Gallery</a>
+                <a href="#contact" class="text-gray-600 hover:text-indigo-600 font-medium transition duration-300 transform hover:scale-105 nav-link-effect">Contact</a>
             </nav>
 
             <!-- CTA button -->
@@ -167,11 +193,11 @@
                     <img src="https://images.unsplash.com/photo-1542838133-c1578e9f2919?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80" 
                          alt="Engineer working on advanced diagnostics equipment" 
                          class="w-full h-48 object-cover object-center" 
-                         onerror="this.onerror=null;this.src='https://placehold.co/600x400/1e293b/ffffff?text=Industrial+Diagnostics';" />
+                         onerror="this.onerror=null;this.src='https://placehold.co/600x400/1e293b/ffffff?text=Industrial+Analysis';" />
                     <div class="p-6">
-                        <h4 class="text-xl font-bold mb-2 accent-color">Advanced Diagnostics Setup</h4>
+                        <h4 class="text-xl font-bold mb-2 accent-color">Advanced analysis Setup</h4>
                         <p class="text-sm text-gray-600">Location: Northern BC Mining Region</p>
-                        <p class="mt-3 text-gray-700 text-sm">Deployment and calibration of critical safety and assay equipment in a remote, high-demand environment.</p>
+                        <p class="mt-3 text-gray-700 text-sm">Deployment and calibration of critical analysis equipment in a high-demand environment.</p>
                     </div>
                 </div>
 
@@ -184,22 +210,22 @@
                          onerror="this.onerror=null;this.src='https://placehold.co/600x400/4f46e5/ffffff?text=Secure+Systems';" />
                     <div class="p-6">
                         <h4 class="text-xl font-bold mb-2 accent-color">Secure IMS System Integration</h4>
-                        <p class="text-sm text-gray-600">Location: US Government Research Facility</p>
-                        <p class="mt-3 text-gray-700 text-sm">Full lifecycle support for Ion Mobility Spectrometry (IMS) units, ensuring strict operational compliance.</p>
+                        <p class="text-sm text-gray-600">Location: Corrections in BC NS </p>
+                        <p class="mt-3 text-gray-700 text-sm">lon Mobility Spectrometry provides high sensitivity and efficiency in detecting a wide range of substances in a minimized operational cycle. </p>
                     </div>
                 </div>
 
-                <!-- Project 3: Photon Assay Calibration - Enhanced Hover -->
+                <!-- Project 3: Lab Calibration - Enhanced Hover -->
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden transition duration-500 card-hover">
                     <!-- Placeholder image URL -->
                     <img src="https://images.unsplash.com/photo-1574516428766-318e8117c768?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80" 
                          alt="Technician calibrating precision laboratory equipment" 
                          class="w-full h-48 object-cover object-center" 
-                         onerror="this.onerror=null;this.src='https://placehold.co/600x400/f1f5f9/1e293b?text=Lab+Calibration';" />
+                         onerror="this.onerror=null;this.src='https://placehold.co/600x400/00ffff/1e293b?text=X-Ray+Based+Tech ';" />
                     <div class="p-6">
-                        <h4 class="text-xl font-bold mb-2 accent-color">Photon Assay Calibration</h4>
-                        <p class="text-sm text-gray-600">Location: Major Western Canada Laboratory</p>
-                        <p class="mt-3 text-gray-700 text-sm">Specialized technical support and maintenance for advanced Photon Assay systems to maximize accuracy and uptime.</p>
+                        <h4 class="text-xl font-bold mb-2 accent-color">Lab Equipment Calibration</h4>
+                        <p class="text-sm text-gray-600">Location: Eastern Canada Laboratories</p>
+                        <p class="mt-3 text-gray-700 text-sm">X-Ray based technology equipment repair and trouble shooting at lab </p>
                     </div>
                 </div>
 
@@ -219,44 +245,45 @@
                 <!-- Slider Track (Holds all images) -->
                 <div class="slider-track" id="slider-track">
                     
-                    <!-- Slide 1: Advanced Diagnostics Setup -->
+                    <!-- Slide 1: IMS System p -->
                     <div class="slider-slide p-4 md:p-8">
-                        <img src="https://images.unsplash.com/photo-1542838133-c1578e9f2919?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" 
-                             alt="Engineer working on diagnostics equipment" 
-                             class="w-full h-80 md:h-96 object-cover object-center rounded-lg shadow-md" />
+                        <img src=".\image\2.png" 
+                             alt="IMS System" 
+                             class="w-full h-96 md:h-[144] object-contain object-center rounded-lg shadow-md" />
                         <div class="mt-4 text-center">
-                            <h4 class="text-2xl font-bold accent-color">Advanced Diagnostics Setup</h4>
-                            <p class="text-sm text-gray-600">Location: Remote Industrial Site</p>
+                            <h4 class="text-2xl font-bold accent-color">DESKTOP EXPLOSIVES AND
+NARCOTICS TRACE DETECTOR</h4>
+                            <p class="text-sm text-gray-600">Location: Corrections in BC</p>
                         </div>
                     </div>
 
-                    <!-- Slide 2: Secure IMS System Integration -->
+                    <!-- Slide 2: IMS System -->
                     <div class="slider-slide p-4 md:p-8">
-                        <img src="https://images.unsplash.com/photo-1525547719543-c0d287163f4e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" 
+                        <img src=".\image\3.png" 
                              alt="Secure data system integration" 
-                             class="w-full h-80 md:h-96 object-cover object-center rounded-lg shadow-md" />
+                             class="w-full h-96 md:h-[144] object-contain object-center rounded-lg shadow-md" />
                         <div class="mt-4 text-center">
-                            <h4 class="text-2xl font-bold accent-color">Secure IMS System Integration</h4>
-                            <p class="text-sm text-gray-600">Location: US Government Research Facility</p>
+                            <h4 class="text-2xl font-bold accent-color">IMS System</h4>
+                            <p class="text-sm text-gray-600"></p>
                         </div>
                     </div>
 
-                    <!-- Slide 3: Photon Assay Calibration -->
+                    <!-- Slide 3: Lab devices -->
                     <div class="slider-slide p-4 md:p-8">
-                        <img src="https://images.unsplash.com/photo-1574516428766-318e8117c768?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" 
-                             alt="Technician calibrating precision laboratory equipment" 
-                             class="w-full h-80 md:h-96 object-cover object-center rounded-lg shadow-md" />
+                        <img src=".\image\4.jpeg" 
+                             alt="X-Ray equipment" 
+                             class="w-full h-96 md:h-[144] object-contain object-center rounded-lg shadow-md" />
                         <div class="mt-4 text-center">
-                            <h4 class="text-2xl font-bold accent-color">Photon Assay Calibration</h4>
-                            <p class="text-sm text-gray-600">Location: Western Canada Laboratory</p>
+                            <h4 class="text-2xl font-bold accent-color">X-Ray equipment</h4>
+                            <p class="text-sm text-gray-600">Location: Eastern Canada Laboratory</p>
                         </div>
                     </div>
 
                     <!-- Slide 4: Engineering Team Collaboration -->
                     <div class="slider-slide p-4 md:p-8">
-                        <img src="https://images.unsplash.com/photo-1506132644265-27a3c391789c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" 
+                        <img src=".\image\5.png" 
                              alt="Engineer collaboration and planning" 
-                             class="w-full h-80 md:h-96 object-cover object-center rounded-lg shadow-md" />
+                             class="w-full h-96 md:h-[144] object-contain object-center rounded-lg shadow-md" />
                         <div class="mt-4 text-center">
                             <h4 class="text-2xl font-bold accent-color">Engineering Team Collaboration</h4>
                             <p class="text-sm text-gray-600">Proactive service planning for major clients.</p>
@@ -265,9 +292,9 @@
 
                     <!-- Slide 5: Clean Industrial Facility -->
                     <div class="slider-slide p-4 md:p-8">
-                        <img src="https://images.unsplash.com/photo-1517072481744-8d488e0ec3d2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" 
+                        <img src="" 
                              alt="High-standard clean industrial facility" 
-                             class="w-full h-80 md:h-96 object-cover object-center rounded-lg shadow-md" />
+                             class="w-full h-96 md:h-[144] object-contain object-center rounded-lg shadow-md" />
                         <div class="mt-4 text-center">
                             <h4 class="text-2xl font-bold accent-color">High Operational Standards</h4>
                             <p class="text-sm text-gray-600">Ensuring high performance in demanding environments.</p>
@@ -423,7 +450,24 @@
                 observer.observe(section);
             });
         }
+        
+        // --- Dynamic Effect Logic: Header Scroll Shadow (New) ---
+        function handleScroll() {
+            const header = document.getElementById('main-header');
+            if (!header) return;
 
+            if (window.scrollY > 50) {
+                // Add the custom class for the dynamic appearance
+                header.classList.add('scrolled-header');
+                // Ensure default shadow is removed when custom shadow is active
+                header.classList.remove('shadow-xl'); 
+            } else {
+                // Remove the custom class
+                header.classList.remove('scrolled-header');
+                // Restore the default shadow when at the top
+                header.classList.add('shadow-xl'); 
+            }
+        }
 
         // Initialization on Window Load
         window.onload = function() {
@@ -439,7 +483,13 @@
 
             // Dynamic Scroll Reveal setup
             setupScrollReveal();
+            
+            // Initial check for header state
+            handleScroll();
         }
+        
+        // Add scroll listener for the header effect
+        window.addEventListener('scroll', handleScroll);
     </script>
 
 </body>
